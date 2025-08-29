@@ -16,6 +16,8 @@ dependencies:
     - gdd-wechat-template.yaml
   tasks:
     - create-doc.md
+  data:
+    - ../data/development-guidelines.md
 ---
 
 ## Capabilities

@@ -1,33 +1,42 @@
 # BMad Expansion Pack: WeChat Mini-Game Development
 
-**Version:** 1.1.0
+**Version:** 1.0.0
+**Author:** Jules (AI Assistant)
 
 ## Overview
 
-This expansion pack provides specialized agents, templates, and tasks to accelerate the development of games for the WeChat Mini-Game platform using the BMad Method.
+This expansion pack provides a comprehensive, structured environment for developing WeChat Mini-Games using the BMad Method. It includes specialized agents, templates, and quality-control checklists that align with the best practices of other game development packs in the BMad ecosystem.
 
-It is designed to help you plan your game's structure, mechanics, and integration with WeChat's unique social and monetization features, as well as to speed up common development tasks.
+This pack is designed to help you plan your game's structure, mechanics, and integration with WeChat's unique features, while ensuring a high-quality, maintainable codebase.
 
 ---
 
 ## Components
 
+### Core Configuration
+
+*   **`config.yaml`**: Contains the metadata for this expansion pack.
+
 ### Specialist Agents
 
-*   **`@wechat-game-designer`**
-    *   An expert agent for planning and designing your WeChat mini-game. Its persona is optimized for the technical challenges of the Mini Game platform.
-*   **`@wechat-game-dev`**
-    *   A specialized developer agent fluent in the WeChat Mini Game framework, its APIs, and performance optimizations. This agent should be used for all implementation tasks.
+*   **`@wechat-game-designer`**: An expert agent for planning your game. It is aware of the technical standards in `development-guidelines.md`.
+*   **`@wechat-game-dev`**: A specialized developer agent for implementing game features, also aware of the development guidelines.
 
-### Document Template
+### Data & Guidelines
 
-*   **`gdd-wechat-template.yaml`**
-    *   A YAML-based template for a Game Design Document that includes special sections for WeChat-specific features like social login, sharing, and monetization.
+*   **`data/development-guidelines.md`**: The central source of truth for all technical preferences, coding standards, and anti-patterns for your project. Both agents use this file for context.
+
+### Templates
+
+*   **`templates/gdd-wechat-template.yaml`**: A YAML-based template for creating a comprehensive Game Design Document tailored for WeChat Mini-Games.
 
 ### Tasks
 
-*   **`scaffold-wechat-page`**
-    *   A task that can be used by the `@wechat-game-dev` agent to quickly create the four necessary files (`.js`, `.wxml`, `.wxss`, `.json`) for a new page in your mini-game.
+*   **`tasks/scaffold-wechat-page.md`**: A task for the `@wechat-game-dev` agent to quickly scaffold new pages.
+
+### Checklists
+
+*   **`checklists/game-story-dod-checklist.md`**: A "Definition of Done" checklist to ensure every story is completed to a consistent quality standard.
 
 ---
 
@@ -35,33 +44,26 @@ It is designed to help you plan your game's structure, mechanics, and integratio
 
 ### 1. Plan Phase
 
-1.  **Create the Game Design Document:** Use the specialized designer to plan your game (e.g., for a Tetris game).
+1.  **Create the Game Design Document:**
     ```bash
-    @wechat-game-designer *create-doc {template: 'gdd-wechat-template.yaml', game_name: 'Tetris'}
+    @wechat-game-designer *create-doc {template: 'gdd-wechat-template.yaml', game_name: 'YourGame'}
     ```
-2.  **Shard the GDD:** Use the Product Owner to break the design into actionable stories.
+2.  **Shard the GDD:**
     ```bash
     @po shard docs/gdd.md
     ```
 
 ### 2. Development Phase
 
-This phase is an iterative cycle for building each feature of your game.
-
-1.  **Initial Scaffolding (Optional):** If you need to create new pages, use the specialized dev agent.
+1.  **Draft a Story:**
     ```bash
-    @wechat-game-dev *scaffold-wechat-page
+    @sm *draft
     ```
-2.  **Development Cycle:** Repeat the following steps for each story.
-    *   **Draft Story:**
-        ```bash
-        @sm *draft
-        ```
-    *   **Implement Story:** Use the specialized developer agent.
-        ```bash
-        @wechat-game-dev *develop-story {path/to/story.md}
-        ```
-    *   **Review Story:** Get a quality review from the Test Architect.
-        ```bash
-        @qa *review {path/to/story.md}
-        ```
+2.  **Implement the Story:**
+    ```bash
+    @wechat-game-dev *develop-story {path/to/story.md}
+    ```
+3.  **Review and Verify:** Before marking as done, use the checklist and have the `@qa` agent review.
+    ```bash
+    @qa *review {path/to/story.md}
+    ```
