@@ -1,0 +1,87 @@
+template:
+  id: gdd-wechat-template
+  name: WeChat Mini-Game GDD
+  version: 1.0.0
+  description: A comprehensive Game Design Document tailored for WeChat Mini-Games.
+  output:
+    format: markdown
+    filename: "docs/gdd.md"
+
+workflow:
+  mode: incremental # Can be 'incremental' or 'rapid'
+
+sections:
+  - id: header
+    title: Game Design Document - {{game_name}}
+    instruction: "Let's start with the basics. What is the name of your game?"
+    fields:
+      - id: game_name
+        type: text
+
+  - id: overview
+    title: "1. Game Overview"
+    instruction: "Provide a high-level pitch for your game. What's the core concept in a few sentences?"
+    content: |
+      ### 1.1. Core Concept
+      {{...}}
+
+      ### 1.2. Target Audience
+      {{...}}
+
+      ### 1.3. Unique Selling Points (USPs)
+      {{...}}
+
+  - id: core_mechanics
+    title: "2. Core Gameplay & Mechanics"
+    instruction: "Describe the core gameplay loop. What does the player do moment-to-moment? What are the main mechanics (e.g., jumping, matching, building)?"
+    content: |
+      ### 2.1. Gameplay Loop
+      {{...}}
+
+      ### 2.2. Player Actions
+      {{...}}
+
+  - id: wechat_integration
+    title: "3. WeChat Platform Integration"
+    instruction: "Now let's focus on the WeChat-specific features. This is crucial for success on the platform."
+    sections:
+      - id: wechat_login
+        title: "3.1. WeChat Login & User Identity"
+        instruction: "How will users log in? Will you just use their basic WeChat profile (avatar, nickname), or do you need more information via `wx.getUserProfile`?"
+        content: |
+          {{...}}
+
+      - id: social_sharing
+        title: "3.2. Social Sharing"
+        instruction: "Describe the social sharing features. What content can be shared (e.g., high scores, achievements)? Will there be incentives for sharing?"
+        content: |
+          - **Share to Chat:** {{...}}
+          - **Share to Moments:** {{...}}
+          - **Invite Mechanics:** {{...}}
+
+      - id: monetization
+        title: "3.3. Monetization & WeChat Pay"
+        instruction: "How will the game make money? Will you use banner ads, rewarded video ads, or in-app purchases (IAP) via WeChat Pay for virtual goods?"
+        content: |
+          - **Ad Strategy:** {{...}}
+          - **IAP Catalog:** {{...}}
+
+  - id: ui_ux
+    title: "4. UI/UX & Controls"
+    instruction: "Describe the user interface and controls, keeping in mind the conventions of the WeChat platform."
+    content: |
+      ### 4.1. Screen Flow
+      {{...}}
+
+      ### 4.2. Control Scheme
+      {{...}}
+
+  - id: art_sound
+    title: "5. Art & Sound Direction"
+    instruction: "What is the desired visual style and audio theme for the game?"
+    content: |
+      ### 5.1. Visual Style
+      {{...}}
+
+      ### 5.2. Audio Design
+      {{...}}
