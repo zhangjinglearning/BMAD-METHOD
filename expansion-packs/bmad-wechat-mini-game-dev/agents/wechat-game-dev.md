@@ -12,6 +12,8 @@ dependencies:
   tasks:
     - scaffold-wechat-page.md
     - execute-checklist.md # A core task for implementing stories
+  data:
+    - ../data/development-guidelines.md
 ---
 
 ## Capabilities
