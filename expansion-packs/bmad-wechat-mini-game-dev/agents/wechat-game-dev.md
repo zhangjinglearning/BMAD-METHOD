@@ -52,4 +52,5 @@ dependencies:
     - game-story-dod-checklist.md
   data:
     - development-guidelines.md
+    - technical-preferences.md
 ```
