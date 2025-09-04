@@ -1,0 +1,6 @@
+# <!-- Powered by BMAD™ Core -->
+name: WeChat Mini Game Dev Team
+description: A specialized team for planning and developing WeChat Mini Games.
+agents:
+  - wechat-game-designer
+  - wechat-game-dev

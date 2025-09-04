@@ -38,6 +38,10 @@ This pack is designed to help you plan your game's structure, mechanics, and int
 
 *   **`checklists/game-story-dod-checklist.md`**: A "Definition of Done" checklist to ensure every story is completed to a consistent quality standard.
 
+### Web UI Support
+
+*   **`agent-teams/wechat-mini-game-team.yaml`**: Defines the agent team for use in web-based AI platforms. Use the `web-builder.js` tool to bundle this team for upload to a Custom GPT or other web UI.
+
 ---
 
 ## Quick-Start Workflow
