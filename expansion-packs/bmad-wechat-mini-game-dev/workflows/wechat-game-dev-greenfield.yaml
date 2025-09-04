@@ -1,0 +1,46 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: wechat-game-dev-greenfield
+  name: WeChat Mini Game - Greenfield Workflow
+  description: A specialized workflow for creating WeChat Mini Games from concept to release, following the official development lifecycle.
+  type: greenfield
+  full_game_sequence:
+    - agent: wechat-game-designer
+      creates: gdd.md
+      using_template: gdd-wechat-template.yaml
+      notes: "Start by defining the core game concept, mechanics, and WeChat-specific features in the Game Design Document."
+    - agent: po
+      action: shard
+      requires: gdd.md
+      notes: "Break down the GDD into actionable epics and stories for the development team."
+    - agent: sm
+      action: draft
+      requires: sharded_epics
+      notes: "Draft the first user story for implementation."
+    - agent: wechat-game-dev
+      action: develop-story
+      requires: story.md
+      notes: "Implement the story using the WeChat Mini Game framework and TypeScript."
+    - agent: qa
+      action: review
+      requires: completed_story
+      notes: "Review the implementation for quality, performance, and adherence to guidelines."
+  handoff_prompts:
+    designer_to_po: "Game Design Document is complete. Please save it as docs/gdd.md, then proceed with sharding it into epics."
+    po_to_sm: "GDD has been sharded. Please draft the first story for the development team."
+    sm_to_dev: "The next user story is drafted and approved. Please begin implementation."
+    dev_to_qa: "Implementation for the story is complete and passes all local tests. It is now ready for your review."
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: New Game Idea] --> B[wechat-game-designer: Create GDD];
+        B --> C[po: Shard GDD];
+        C --> D[sm: Draft Story];
+        D --> E{Development Cycle};
+        E --> F[wechat-game-dev: Implement Story];
+        F --> G[qa: Review Story];
+        G --> H{More Stories?};
+        H -->|Yes| D;
+        H -->|No| I[Release];
+        style I fill:#90EE90
+    ```
