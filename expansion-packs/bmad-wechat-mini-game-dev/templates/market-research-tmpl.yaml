@@ -1,0 +1,61 @@
+# WeChat Mini Game Market Research: {{GAME_NAME}}
+
+## 1. Executive Summary
+- **Date:** {{DATE}}
+- **Prepared For:** {{STAKEHOLDER_NAME}}
+- **Key Findings:** A brief overview of the most critical insights from the research.
+- **Recommendations:** High-level suggestions based on the findings (e.g., "Proceed with development," "Pivot to a different genre," "Focus on a niche audience").
+
+## 2. Market Overview
+- **Market Size & Growth:** Statistics or estimates on the size of the WeChat Mini Game market and its growth trajectory.
+- **Current Trends:**
+  - **Popular Genres:** What types of games are currently trending? (e.g., Hyper-casual, Puzzle, RPG, Simulation).
+  - **Monetization Models:** Dominant monetization strategies (e.g., Ad-driven, IAP, Hybrid).
+  - **Social Integration:** How are games leveraging WeChat's social features?
+  - **Technological Trends:** Use of 3D graphics, real-time multiplayer, etc.
+
+## 3. Target Audience Analysis
+- **Primary Audience:**
+  - **Demographics:** Age, gender, location, occupation.
+  - **Behaviors:** When do they play? How long are their sessions? What are their motivations for playing?
+- **Secondary Audience:**
+  - Other potential user groups to target.
+
+## 4. Competitor Analysis
+- **Direct Competitors (similar genre on WeChat):**
+  - **Competitor 1: {{COMPETITOR_1_NAME}}**
+    - **Gameplay:** What is their core loop? What are their key features?
+    - **Strengths:** What do they do well? (e.g., "Great art style," "Strong community").
+    - **Weaknesses:** Where are they lacking? (e.g., "Bugs," "Poor monetization balance").
+    - **User Ratings & Reviews:** Common themes from user feedback.
+  - **Competitor 2: {{COMPETITOR_2_NAME}}**
+    - ... (repeat for other competitors)
+- **Indirect Competitors (games in other genres competing for the same audience's time):**
+  - Briefly list and analyze.
+
+## 5. SWOT Analysis for {{GAME_NAME}}
+- **Strengths:**
+  - What are our internal advantages? (e.g., "Unique game mechanic," "Experienced team").
+- **Weaknesses:**
+  - What are our internal limitations? (e.g., "Small marketing budget," "New to the WeChat platform").
+- **Opportunities:**
+  - What external factors can we leverage? (e.g., "A gap in the market for [niche]," "New WeChat API for [feature]").
+- **Threats:**
+  - What external factors could harm our success? (e.g., "A big publisher is releasing a similar game," "Changes in WeChat's policies").
+
+## 6. Unique Selling Proposition (USP)
+- **What makes {{GAME_NAME}} different and better than the competition?**
+- This should be a clear, concise statement. For example: "{{GAME_NAME}} is the only real-time multiplayer puzzle game on WeChat that allows you to directly challenge your friends."
+
+## 7. Market Viability & Recommendations
+- **Overall Assessment:** Based on the research, is there a viable market for {{GAME_NAME}}?
+- **Recommendations for Game Design:**
+  - Features to include to compete effectively.
+  - Features to avoid.
+- **Recommendations for Marketing:**
+  - Key messages to emphasize.
+  - Channels to use for reaching the target audience.
+
+## 8. Appendix
+- **Data Sources:** Links to articles, reports, and other data used in the research.
+- **Raw Data:** (e.g., full list of competitor games, survey results).

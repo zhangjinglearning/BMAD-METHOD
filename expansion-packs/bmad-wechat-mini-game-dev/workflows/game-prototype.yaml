@@ -1,0 +1,142 @@
+workflow:
+  id: wechat-mini-game-prototype
+  name: WeChat Mini Game Rapid Prototype Development
+  description: A workflow optimized for the rapid prototyping of WeChat Mini Games. It leverages the WeChat Developer Tools and the native Mini Game framework to quickly validate game concepts, test mechanics, and iterate on ideas. The focus is on speed, using standard components, mock data, and the simulator for fast feedback loops.
+  type: prototype
+  project_types:
+    - wechat-game-jam
+    - wechat-mechanic-test
+    - wechat-ui-experiment
+    - wechat-social-feature-poc
+    - wechat-monetization-test
+  prototype_sequence:
+    - step: concept_definition
+      agent: game-designer
+      duration: 15-30 minutes
+      creates: concept-summary.md
+      notes: Define a game concept that fits the WeChat ecosystem (e.g., social, casual, short sessions). Identify the core mechanic and the key WeChat APIs needed (e.g., `wx.login`, `wx.shareAppMessage`).
+    - step: rapid_design
+      agent: game-designer
+      duration: 30-60 minutes
+      creates: prototype-spec.md
+      requires: concept-summary.md
+      optional_steps:
+        - ui_flow_sketching
+        - component_selection
+        - api_mocking_plan
+      notes: "Map the game flow using simple wireframes. Plan the UI using standard Mini Game components for speed. Define what data needs to be mocked (e.g., user profiles, leaderboards)."
+    - step: technical_planning
+      agent: game-developer
+      duration: 15-30 minutes
+      creates: prototype-architecture.md
+      requires: prototype-spec.md
+      notes: Plan the project structure within the WeChat Developer Tools. Define the `app.json` for pages and necessary permissions. Decide on JavaScript vs. TypeScript for the prototype.
+    - step: implementation_stories
+      agent: game-sm
+      duration: 30-45 minutes
+      creates: prototype-stories/
+      requires: prototype-spec.md, prototype-architecture.md
+      notes: Create 3-5 focused stories, e.g., "Implement basic user login with mock data", "Create the main game canvas and a simple player object", "Add a 'Share' button that logs to the console".
+    - step: iterative_development
+      agent: game-developer
+      duration: varies
+      implements: prototype-stories/
+      notes: Build directly in the WeChat Developer Tools. Use the simulator for instant feedback and the debugger for troubleshooting. Use the "Preview" feature to test on physical devices frequently.
+  workflow_end:
+    action: prototype_evaluation
+    notes: "Prototype complete. Evaluate the core mechanic's fun factor and technical feasibility on the WeChat platform. Decide whether to iterate, pivot, or proceed to full development."
+  game_jam_sequence:
+    - step: jam_concept
+      agent: game-designer
+      duration: 10-15 minutes
+      creates: jam-concept.md
+      notes: Quickly match the jam theme to a feasible Mini Game idea. Identify a simple core loop and a "wow" factor that can be implemented quickly (e.g., a clever use of a WeChat API).
+    - step: jam_implementation
+      agent: game-developer
+      duration: varies (jam timeline)
+      creates: working-prototype
+      requires: jam-concept.md
+      notes: Code directly in the WeChat Dev Tools. Prioritize functionality over polish. Use hardcoded data and console logs extensively. Focus on getting a playable version ready for sharing via the "Preview" QR code.
+  jam_workflow_end:
+    action: jam_submission
+    notes: "Submit the prototype. Capture learnings about what works and what doesn't in a hyper-constrained timeframe on the WeChat platform."
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Prototype Project] --> B{Development Context?}
+        B -->|Standard Prototype| C[game-designer: concept-summary.md]
+        B -->|Internal Jam/Hackathon| D[game-designer: jam-concept.md]
+
+        C --> E[game-designer: prototype-spec.md]
+        E --> F[game-developer: prototype-architecture.md]
+        F --> G[game-sm: create prototype stories]
+        G --> H[game-developer: iterative implementation]
+        H --> I[Prototype Evaluation]
+
+        D --> J[game-developer: direct implementation]
+        J --> K[Jam Submission]
+
+        style I fill:#90EE90
+        style K fill:#90EE90
+        style C fill:#FFE4B5
+        style E fill:#FFE4B5
+        style F fill:#FFE4B5
+        style G fill:#FFE4B5
+        style H fill:#FFE4B5
+        style D fill:#FFB6C1
+        style J fill:#FFB6C1
+    ```
+  wechat_specific_features:
+    rapid_prototyping_tools:
+      - WeChat Developer Tools Simulator for various devices.
+      - Live compilation and hot-reloading on save.
+      - Built-in debugger and performance profiler.
+      - "Preview" with QR code for instant device testing.
+    prototype_acceleration:
+      - Use of standard WXML/WXSS components for UI.
+      - Mocking `wx.` API responses to avoid backend setup.
+      - Focusing on the main package, ignoring subpackaging for speed.
+      - Leveraging the Open Data Context for simple friend-related features.
+  decision_guidance:
+    use_prototype_sequence_when:
+      - Testing a new game mechanic's viability.
+      - Experimenting with WeChat-specific APIs (e.g., user info, sharing, payments).
+      - Validating a UI/UX flow before full asset creation.
+      - Building a proof-of-concept for stakeholders.
+    use_game_jam_sequence_when:
+      - Participating in an internal hackathon or game jam.
+      - Needing to build a functional demo in under 48 hours.
+      - The goal is idea validation, not code quality.
+  wechat_prototype_best_practices:
+    rapid_development:
+      - Start with the official "template" project in the Dev Tools.
+      - Use console.log heavily for debugging.
+      - Test on a physical device at least once per hour.
+      - Keep asset sizes minimal.
+    api_leverage:
+      - Use `wx.login` with mock server responses.
+      - Implement `wx.shareAppMessage` early to test social loops.
+      - Use `wx.setStorageSync` for simple state persistence.
+  post_prototype_options:
+    iterate_and_improve:
+      action: continue_prototyping
+      when: The core mechanic is promising but needs refinement.
+      next_steps: Create a new prototype iteration focusing on the identified weaknesses.
+    expand_to_full_game:
+      action: transition_to_full_development
+      when: The prototype validates a strong and fun game concept.
+      next_steps: Begin the `wechat-mini-game-dev-greenfield` workflow to build a robust version.
+    pivot_concept:
+      action: new_prototype_direction
+      when: The current idea isn't working, but the process revealed a better one.
+      next_steps: Apply the learnings to a new prototype concept.
+    archive_and_learn:
+      action: document_learnings
+      when: The prototype fails to validate the concept but provides valuable insights.
+      next_steps: Document the lessons learned and move on to the next idea.
+  handoff_prompts:
+    concept_to_design: "Concept is defined. Create a rapid spec focusing on the UI flow and essential components."
+    design_to_technical: "Spec is ready. Set up the project in WeChat Developer Tools and plan the basic file structure."
+    technical_to_stories: "Project is set up. Create a few small, actionable stories for the initial implementation sprint."
+    stories_to_implementation: "Stories are ready. Start coding and use the simulator/preview features constantly."
+    prototype_to_evaluation: "The prototype is functional. Evaluate its potential and decide on the next steps."

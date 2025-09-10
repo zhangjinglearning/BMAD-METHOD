@@ -1,0 +1,345 @@
+template:
+  id: wechat-mini-game-story-template-v4
+  name: WeChat Mini Game Development Story
+  version: 4.0
+  output:
+    format: markdown
+    filename: "stories/{{epic_name}}/{{story_id}}-{{story_name}}.md"
+    title: "WeChat Mini Game Story: {{story_title}}"
+
+workflow:
+  mode: interactive
+
+sections:
+  - id: initial-setup
+    instruction: |
+      This template creates detailed WeChat Mini Game development stories with TDD focus and 60+ FPS performance requirements. Each story should focus on a single, implementable feature using JavaScript.
+
+      Before starting, ensure you have access to:
+
+      - Game Design Document (GDD) with WeChat Mini Game specifications
+      - Game Architecture Document with object hierarchy
+      - Performance targets (60+ FPS mandatory)
+      - Any existing stories in this epic
+
+      The story must include TDD requirements and performance validation steps.
+
+  - id: story-header
+    content: |
+      **Epic:** {{epic_name}}
+      **Story ID:** {{story_id}}
+      **Priority:** {{High|Medium|Low}}
+      **Points:** {{story_points}}
+      **Status:** Draft
+      **Language:** JavaScript
+      **Performance Target:** 60+ FPS
+
+  - id: description
+    title: Description
+    instruction: Provide a clear, concise description of what this story implements in WeChat Mini Game. Focus on the specific game feature, object architecture, and language choice rationale. Reference the GDD section and performance requirements.
+    template: |
+      {{clear_description_of_what_needs_to_be_implemented}}
+
+      **WeChat Mini Game Implementation:** Using {{object_types}} with JavaScript for {{performance_reason}}
+      **Performance Impact:** {{expected_fps_impact}}
+
+  - id: acceptance-criteria
+    title: Acceptance Criteria
+    instruction: Define specific, testable conditions that must be met for the story to be considered complete. Each criterion should be verifiable and directly related to gameplay functionality.
+    sections:
+      - id: functional-requirements
+        title: Functional Requirements
+        type: checklist
+        items:
+          - "{{specific_functional_requirement}}"
+      - id: technical-requirements
+        title: Technical Requirements
+        type: checklist
+        items:
+          - Code follows JavaScript best practices
+          - Maintains 60+ FPS on all target devices (frame time <16.67ms)
+          - Object pooling implemented for spawned entities
+          - Events properly connected and cleaned up
+          - Test coverage >= 80%
+          - "{{specific_technical_requirement}}"
+      - id: game-design-requirements
+        title: Game Design Requirements
+        type: checklist
+        items:
+          - "{{gameplay_requirement_from_gdd}}"
+          - "{{balance_requirement_if_applicable}}"
+          - "{{player_experience_requirement}}"
+
+  - id: technical-specifications
+    title: Technical Specifications
+    instruction: Provide specific WeChat Mini Game technical details including object hierarchy, event flow, and language decisions. Include scene structure and resource requirements.
+    sections:
+      - id: files-to-modify
+        title: Files to Create/Modify
+        template: |
+          **New Scenes:**
+
+          - `scenes/{{scene_name}}.js` - {{purpose}}
+
+          **New Scripts:**
+
+          - `js/{{script_name}}.js` - {{javascript_purpose}}
+
+          **New Resources:**
+
+          - `resources/{{resource_name}}.json` - {{resource_purpose}}
+
+          **Modified Files:**
+
+          - `{{existing_file_1}}` - {{changes_needed}}
+          - `{{existing_file_2}}` - {{changes_needed}}
+      - id: class-interface-definitions
+        title: Object/Class Definitions
+        instruction: Define specific WeChat Mini Game object structures and classes with language strategy
+        template: |
+          **JavaScript Implementation (for game logic):**
+          ```javascript
+          // {{script_name}}.js
+          class {{ClassName}} extends {{BaseClass}} {
+              constructor() {
+                  super();
+                  // TDD: Write tests first
+              }
+
+              _update(delta) {
+                  // Must maintain 60+ FPS
+              }
+          }
+          ```
+      - id: integration-points
+        title: Integration Points
+        instruction: Specify how this feature integrates with existing WeChat Mini Game systems
+        template: |
+          **Scene Tree Integration:**
+
+          - Parent Scene: `scenes/{{parent_scene}}.js`
+          - Object Path: `{{object_path}}`
+          - Scene Instancing: {{instancing_details}}
+
+          **Object Dependencies:**
+
+          - {{object_name}}: {{dependency_description}}
+
+          **Event Connections:**
+
+          - Emits: `{{event_name}}` when {{condition}}
+          - Connects to: `{{object_path}}.{{event_name}}` for {{response}}
+          - Cleanup: Events disconnected in `_destroy()`
+
+          **Resource Dependencies:**
+
+          - `resources/{{resource}}.json` - {{usage}}
+          - Preloaded: {{yes|no}} - {{preload_reason}}
+
+  - id: tdd-workflow
+    title: TDD Workflow (Red-Green-Refactor)
+    instruction: Define the Test-Driven Development approach for this story
+    template: |
+      **RED Phase - Write Failing Tests First:**
+
+      - [ ] Create test file: `tests/unit/test_{{component}}.js`
+      - [ ] Write test for {{behavior_1}} - expect failure
+      - [ ] Write test for {{behavior_2}} - expect failure
+      - [ ] Write performance test for 60+ FPS - expect failure
+
+      **GREEN Phase - Make Tests Pass:**
+
+      - [ ] Implement minimal code to pass {{behavior_1}} test
+      - [ ] Implement minimal code to pass {{behavior_2}} test
+      - [ ] Ensure 60+ FPS requirement is met
+      - [ ] Verify all tests are green
+
+      **REFACTOR Phase - Optimize and Clean:**
+
+      - [ ] Refactor with modern JavaScript
+      - [ ] Implement object pooling for {{spawned_entities}}
+      - [ ] Clean up event connections
+      - [ ] Profile and verify 60+ FPS maintained
+      - [ ] Ensure test coverage >= 80%
+
+  - id: implementation-tasks
+    title: Implementation Tasks
+    instruction: Break down the implementation into TDD-focused tasks following Red-Green-Refactor cycle. Each task should maintain 60+ FPS.
+    sections:
+      - id: dev-agent-record
+        title: Dev Agent Record
+        template: |
+          **TDD Tasks (Red-Green-Refactor):**
+
+          - [ ] Write tests for {{component}} (RED phase)
+          - [ ] Implement {{object_structure}} to pass tests (GREEN phase)
+          - [ ] Refactor with optimization (REFACTOR phase)
+          - [ ] Create object pool for {{spawned_entities}}
+          - [ ] Implement event connections with cleanup
+          - [ ] Profile performance to ensure 60+ FPS
+          - [ ] Integration testing with {{related_system}}
+          - [ ] Final performance validation (must maintain 60+ FPS)
+
+          **Debug Log:**
+          | Task | File | Change | Reverted? |
+          |------|------|--------|-----------|
+          | | | | |
+
+          **Completion Notes:**
+
+          <!-- Only note deviations from requirements, keep under 50 words -->
+
+          **Change Log:**
+
+          <!-- Only requirement changes during implementation -->
+
+  - id: wechat-mini-game-technical-context
+    title: WeChat Mini Game Technical Context
+    instruction: Define the WeChat Mini Game-specific technical implementation details
+    template: |
+      **Engine Version:** WeChat Mini Game {{version}}
+      **Primary Language:** JavaScript
+
+      **Object Architecture:**
+      ```
+      {{parent_object}}
+      └── {{child_object_1}} ({{object_type}})
+          ├── {{child_object_2}} ({{object_type}})
+          └── {{child_object_3}} ({{object_type}})
+      ```
+
+      **Performance Requirements:**
+      - Target FPS: 60+ (mandatory)
+      - Frame Budget: 16.67ms
+      - Memory Budget: {{memory_mb}}MB
+      - Draw Calls: < {{draw_calls}}
+
+      **Object Pooling Required:**
+      - {{entity_type}}: Pool size {{pool_size}}
+      - Recycling strategy: {{strategy}}
+
+  - id: game-design-context
+    title: Game Design Context
+    instruction: Reference the specific sections of the GDD that this story implements with WeChat Mini Game-specific details
+    template: |
+      **GDD Reference:** {{section_name}} ({{page_or_section_number}})
+
+      **Game Mechanic:** {{mechanic_name}}
+
+      **WeChat Mini Game Implementation Approach:**
+      - Object Architecture: {{object_hierarchy}}
+      - Performance Target: 60+ FPS with {{expected_load}}
+
+      **Player Experience Goal:** {{experience_description}}
+
+      **Balance Parameters (JSON-based):**
+
+      - {{parameter_1}}: {{value_or_range}} (stored in .json)
+      - {{parameter_2}}: {{value_or_range}} (exported variable)
+
+  - id: testing-requirements
+    title: Testing Requirements
+    instruction: Define specific TDD testing criteria
+    sections:
+      - id: unit-tests
+        title: Unit Tests (TDD Mandatory)
+        template: |
+          **Test Files:**
+
+          - `tests/unit/test_{{component_name}}.js`
+          - Coverage Target: 80% minimum
+
+          **Test Scenarios (Write First - Red Phase):**
+
+          - {{test_scenario_1}} - Must validate 60+ FPS
+          - {{test_scenario_2}} - Event emission verification
+          - {{edge_case_test}} - Object pool boundary testing
+          - Performance test: Frame time < 16.67ms
+      - id: game-testing
+        title: Game Testing
+        template: |
+          **Manual Test Cases (WeChat Mini Game Editor):**
+
+          1. {{test_case_1_description}}
+
+            - Expected: {{expected_behavior}}
+            - Performance: Must maintain 60+ FPS
+            - Profiler Check: Frame time < 16.67ms
+
+          2. {{test_case_2_description}}
+            - Expected: {{expected_behavior}}
+            - Event Flow: {{event_verification}}
+            - Memory: No leaks, events cleaned up
+            - Object Pools: Verify pooling active
+      - id: performance-tests
+        title: Performance Tests
+        template: |
+          **WeChat Mini Game Profiler Metrics (Mandatory):**
+
+          - Frame rate: 60+ FPS consistently (FAIL if below)
+          - Frame time: < 16.67ms average
+          - Physics frame: < {{physics_time}}ms
+          - Memory usage: < {{memory_limit}}MB
+          - Draw calls: < {{draw_call_budget}}
+          - Object pools: Active and recycling properly
+          - {{feature_specific_performance_metric}}
+
+  - id: dependencies
+    title: Dependencies
+    instruction: List any dependencies including WeChat Mini Game-specific requirements
+    template: |
+      **Story Dependencies:**
+
+      - {{story_id}}: {{dependency_description}}
+
+      **WeChat Mini Game System Dependencies:**
+
+      - Object: {{parent_object}} must exist in scene tree
+      - Global Manager: {{global_manager}} configured
+
+      **Resource Dependencies:**
+
+      - Resource Type: {{.json}}
+      - Asset: {{asset_description}}
+      - Location: `resources/{{asset_path}}`
+      - Import Settings: {{import_configuration}}
+
+  - id: definition-of-done
+    title: Definition of Done
+    instruction: Checklist that must be completed with focus on WeChat Mini Game, TDD, and performance
+    type: checklist
+    items:
+      - All acceptance criteria met
+      - TDD followed (tests written first, then implementation)
+      - Tests passing with 80%+ coverage
+      - Performance: 60+ FPS maintained on all platforms
+      - Object pooling active for spawned entities
+      - Events properly connected and cleaned up
+      - No JavaScript errors/warnings
+      - Object hierarchy follows architecture
+      - Resources (.json) configured properly
+      - Export templates tested
+      - Documentation updated
+      - "{{game_specific_dod_item}}"
+
+  - id: notes
+    title: Notes
+    instruction: Any additional WeChat Mini Game-specific context, language decisions, or optimization notes
+    template: |
+      **WeChat Mini Game Implementation Notes:**
+
+      - Object Architecture: {{object_pattern}} for {{benefit}}
+      - Event Pattern: {{event_strategy}}
+      - {{note_1}}
+
+      **Performance Decisions:**
+
+      - Object Pooling: {{pooling_strategy}} for spawned entities
+      - {{decision_1}}: {{rationale}}
+
+      **Future Optimizations:**
+
+      - Implement LOD for {{complex_objects}}
+      - Add performance benchmarks to test suite
+      - {{future_optimization_1}}
+```

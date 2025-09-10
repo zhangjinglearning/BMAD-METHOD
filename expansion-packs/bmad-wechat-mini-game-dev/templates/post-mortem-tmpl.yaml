@@ -1,0 +1,71 @@
+# Post-Mortem Report for {{PROJECT_NAME}}
+
+## 1. Project Overview
+- **Project Name:** {{PROJECT_NAME}}
+- **Date of Post-Mortem:** {{DATE}}
+- **Participants:** {{LIST_OF_ATTENDEES}}
+- **Project Timeline:**
+  - **Start Date:** {{START_DATE}}
+  - **Launch Date:** {{LAUNCH_DATE}}
+- **Brief Description:** A summary of the project's goals and its final outcome.
+
+## 2. Agenda
+1.  Review Project Goals vs. Actual Outcomes
+2.  What Went Well?
+3.  What Didn't Go So Well?
+4.  What Did We Learn?
+5.  Action Items for Next Time
+
+---
+
+## 3. Project Goals vs. Actual Outcomes
+
+| Goal | Expected Outcome | Actual Outcome | Variance |
+| :--- | :--- | :--- | :--- |
+| **User Acquisition** | 10,000 DAU by Week 4 | 8,500 DAU by Week 4 | -15% |
+| **User Retention** | Day 1 Retention > 30% | Day 1 Retention = 35% | +5% |
+| **Performance** | Avg. FPS > 55 on target devices | Avg. FPS > 58 | Met |
+| **Budget** | Stay within $ {{BUDGET}} | Spent $ {{ACTUAL_COST}} | {{BUDGET_VARIANCE}} |
+| **Timeline** | Launch by {{LAUNCH_DATE}} | Launched on {{ACTUAL_LAUNCH_DATE}} | {{TIMELINE_VARIANCE}} |
+
+---
+
+## 4. What Went Well? (The Good)
+*List items that were successful. Focus on processes, tools, and teamwork.*
+
+- **Example 1 (Process):** "Our agile process with weekly sprints kept us on track and allowed us to adapt to feedback quickly."
+- **Example 2 (Technology):** "Using TypeScript from the start caught many potential runtime errors during development, saving us significant debugging time."
+- **Example 3 (WeChat Specific):** "The integration with WeChat's Open Data Context for friend leaderboards was smoother than expected and proved to be a major driver of user engagement."
+- **Example 4 (Team):** "The communication between the art and development teams was excellent, leading to a very efficient asset pipeline."
+
+---
+
+## 5. What Didn't Go So Well? (The Bad)
+*List items that were challenging or failed. Be honest and focus on the issues, not blaming individuals.*
+
+- **Example 1 (Planning):** "We underestimated the complexity of the backend logic for handling session keys, which led to a two-week delay."
+- **Example 2 (Technology):** "We encountered significant performance issues on older Android models, requiring a last-minute optimization sprint."
+- **Example 3 (WeChat Specific):** "A sudden change in WeChat's API policy for user information required a significant rework of our onboarding flow just before launch."
+- **Example 4 (Process):** "Our bug tracking process was inconsistent in the beginning, making it hard to prioritize fixes."
+
+---
+
+## 6. What Did We Learn? (The Lessons)
+*Synthesize the good and the bad into key takeaways. What are the main lessons for the future?*
+
+- **Lesson 1:** "For future WeChat Mini Game projects, we must allocate specific research time to stay ahead of platform policy changes."
+- **Lesson 2:** "Performance testing on a wide range of devices needs to start earlier in the development cycle, not just before release."
+- **Lesson 3:** "A dedicated backend developer with experience in WeChat's authentication flow is crucial for projects requiring server interaction."
+- **Lesson 4:** "TypeScript is a major asset for this type of project and should be standard practice going forward."
+
+---
+
+## 7. Action Items
+*Create a list of concrete, actionable steps to take to improve future projects. Assign an owner to each item.*
+
+| Action Item | Owner | Due Date |
+| :--- | :--- | :--- |
+| Create a formal process for monitoring WeChat Developer announcements. | {{GAME_PM_NAME}} | {{DUE_DATE_1}} |
+| Update our device testing lab with a wider range of low-end Android phones. | {{QA_LEAD_NAME}} | {{DUE_DATE_2}} |
+| Develop a reusable TypeScript module for WeChat authentication. | {{LEAD_DEV_NAME}} | {{DUE_DATE_3}} |
+| Standardize the bug reporting template in Jira. | {{GAME_SM_NAME}} | {{DUE_DATE_4}} |

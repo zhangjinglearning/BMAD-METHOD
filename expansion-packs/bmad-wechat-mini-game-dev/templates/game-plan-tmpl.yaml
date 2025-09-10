@@ -1,0 +1,83 @@
+# Game Development Plan for {{GAME_NAME}} - A WeChat Mini Game
+
+## 1. Introduction
+- **Project Vision:** A concise statement of the game's purpose and what makes it unique on the WeChat platform.
+- **Goals & Objectives:** What we aim to achieve with this game (e.g., user engagement, monetization, brand promotion).
+
+## 2. Game Overview
+- **Concept:** High-level description of the game.
+- **Genre:** {{GAME_GENRE}}
+- **Target Audience:** Demographics, interests, and gaming habits of the intended players on WeChat.
+- **Core Gameplay Loop:** The primary actions players will take, described in a cycle (e.g., "Collect coins -> Buy upgrades -> Tackle harder levels -> Earn more coins").
+- **Key Features:** List of major features (e.g., "Real-time multiplayer," "Daily login rewards," "Social sharing of high scores").
+
+## 3. Scope & MVP
+- **Minimum Viable Product (MVP):** The absolute essential features needed to launch the game.
+  - *Feature 1*
+  - *Feature 2*
+  - *...*
+- **Post-Launch Features (Roadmap):** Features planned for future updates.
+  - *Feature A (e.g., New levels, characters)*
+  - *Feature B (e.g., Seasonal events)*
+  - *...*
+
+## 4. Technical Plan
+- **Engine/Framework:** WeChat Mini Game Development Framework.
+- **Programming Language(s):** JavaScript/TypeScript.
+- **Key WeChat APIs:**
+  - `wx.login` for user authentication.
+  - `wx.getUserInfo` for player profiles.
+  - `wx.request` for server communication.
+  - `wx.getStorage`/`wx.setStorage` for local data persistence.
+  - `wx.createInnerAudioContext` for sound effects.
+  - Open Data Context for friend leaderboards.
+- **Backend Services:**
+  - **Authentication:** WeChat's session key management.
+  - **Database:** (e.g., Cloud-based NoSQL, traditional SQL).
+  - **Server Logic:** (e.g., Node.js with Express, serverless functions).
+- **Art & Audio Asset Pipeline:**
+  - **Art Style:** {{ART_STYLE}}.
+  - **Tools:** (e.g., Photoshop, Aseprite for pixel art).
+  - **Audio:** (e.g., Audacity, FMOD).
+
+## 5. Marketing & Launch
+- **Pre-Launch:**
+  - Teaser campaigns on social media.
+  - Beta testing with a select group of users.
+- **Launch:**
+  - Official announcement.
+  - Promotion through WeChat Official Accounts.
+- **Post-Launch:**
+  - User acquisition campaigns.
+  - Community management and engagement.
+
+## 6. Monetization (if applicable)
+- **Strategy:** (e.g., In-game ads, in-app purchases, cosmetic items).
+- **Ad Networks:** WeChat's own ad components.
+- **Virtual Goods:** List of items for sale.
+
+## 7. Team & Roles
+- **Product Owner:** {{GAME_PO_NAME}}
+- **Scrum Master:** {{GAME_SM_NAME}}
+- **Lead Developer:** {{LEAD_DEV_NAME}}
+- **UX/UI Designer:** {{UX_DESIGNER_NAME}}
+- **QA Tester:** {{QA_TESTER_NAME}}
+
+## 8. Timeline & Milestones
+- **Sprint 1 ({{SPRINT_1_DATES}}):** {{SPRINT_1_GOALS}}
+- **Sprint 2 ({{SPRINT_2_DATES}}):** {{SPRINT_2_GOALS}}
+- **...**
+- **Alpha Release:** {{ALPHA_DATE}}
+- **Beta Release:** {{BETA_DATE}}
+- **Official Launch:** {{LAUNCH_DATE}}
+
+## 9. Risks & Mitigation
+- **Technical Risks:**
+  - *Risk:* Performance issues on older devices.
+  - *Mitigation:* Rigorous testing on a wide range of phones; asset optimization.
+- **Market Risks:**
+  - *Risk:* Low user adoption.
+  - *Mitigation:* Strong pre-launch marketing; A/B testing of game features.
+- **Platform Risks:**
+  - *Risk:* Changes in WeChat's platform policies.
+  - *Mitigation:* Stay updated with WeChat developer documentation; build a flexible architecture.

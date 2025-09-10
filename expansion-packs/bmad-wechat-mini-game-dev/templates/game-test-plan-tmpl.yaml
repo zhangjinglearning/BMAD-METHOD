@@ -1,0 +1,95 @@
+# WeChat Mini Game Test Plan for {{GAME_NAME}}
+
+## 1. Introduction
+- **Purpose:** To define the testing strategy, scope, resources, and schedule for the game "{{GAME_NAME}}".
+- **Scope:** This plan covers all testing activities from unit testing to user acceptance testing.
+
+## 2. Testing Objectives
+- Ensure the game meets the functional requirements defined in the Game Design Document.
+- Verify a smooth and responsive user experience across a range of target devices.
+- Confirm compliance with all WeChat Mini Game platform policies.
+- Identify and resolve performance bottlenecks.
+- Validate the backend services for scalability and reliability.
+
+## 3. Testing Types & Scope
+
+### 3.1. Unit Testing
+- **Scope:** Individual functions and components of the game's codebase.
+- **Framework:** (e.g., Jest, Mocha) for testing JavaScript/TypeScript logic.
+- **Responsibility:** Developers.
+- **Key Areas:**
+  - Game logic (e.g., scoring, physics).
+  - Utility functions.
+  - API interaction modules.
+
+### 3.2. Integration Testing
+- **Scope:** Testing the interaction between different game components.
+- **Responsibility:** Developers & QA.
+- **Key Areas:**
+  - Frontend to backend communication (API calls).
+  - Game client interaction with WeChat APIs (e.g., `wx.login`, `wx.getStorage`).
+  - Integration with third-party SDKs (if any).
+
+### 3.3. System Testing
+- **Scope:** Testing the complete, integrated game as a whole.
+- **Responsibility:** QA Team.
+- **Key Areas:**
+  - End-to-end gameplay scenarios.
+  - User authentication and profile management.
+  - In-game purchases and ad displays.
+  - Social features (e.g., sharing, leaderboards).
+
+### 3.4. Performance Testing
+- **Scope:** Assessing the game's performance under various conditions.
+- **Responsibility:** QA & Developers.
+- **Metrics:**
+  - **FPS (Frames Per Second):** Should remain stable.
+  - **Memory Usage:** Monitor for leaks.
+  - **CPU Usage:** Identify intensive operations.
+  - **Load Times:** Initial load and asset loading.
+- **Tools:** WeChat Developer Tools' built-in performance profiler.
+
+### 3.5. Compatibility Testing
+- **Scope:** Ensuring the game works correctly on different devices and platforms.
+- **Responsibility:** QA Team.
+- **Target Environments:**
+  - **Operating Systems:** iOS, Android (various versions).
+  - **Devices:** A curated list of high-end, mid-range, and low-end smartphones.
+  - **WeChat Versions:** Latest and older, still-supported versions.
+
+### 3.6. User Acceptance Testing (UAT)
+- **Scope:** Beta testing with a group of real users.
+- **Responsibility:** Product Owner & Beta Testers.
+- **Process:**
+  - Recruit a diverse group of testers.
+  - Provide them with a build of the game.
+  - Collect feedback via surveys, forums, or direct communication.
+
+## 4. Test Environment & Tools
+- **Development & Debugging:** WeChat Developer Tools.
+- **Version Control:** Git.
+- **Bug Tracking:** (e.g., Jira, Trello, GitHub Issues).
+- **Test Devices:**
+  - iPhone models: {{IPHONE_MODELS_LIST}}
+  - Android models: {{ANDROID_MODELS_LIST}}
+
+## 5. Test Execution Schedule
+- **Sprint Testing:** Aligned with the development sprints.
+- **Regression Testing:** Before each major release.
+- **UAT Phase:** {{UAT_START_DATE}} to {{UAT_END_DATE}}.
+
+## 6. Entry & Exit Criteria
+- **Entry Criteria (Start of Testing):**
+  - Test plan approved.
+  - A stable build is available.
+  - Test cases are ready.
+- **Exit Criteria (End of Testing):**
+  - All critical and major bugs are fixed.
+  - Test case execution is complete with a high pass rate (e.g., >95%).
+  - UAT feedback has been addressed.
+
+## 7. Roles & Responsibilities
+- **QA Lead:** Owns the test plan and overall testing process.
+- **QA Testers:** Write and execute test cases, report bugs.
+- **Developers:** Fix bugs, write unit tests.
+- **Product Owner:** Approves the final product based on UAT results.
