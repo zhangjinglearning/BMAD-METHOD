@@ -1,0 +1,22 @@
+name: bmad-wechat-mini-game-dev
+version: 0.1.0
+short-title: WeChat Mini Game Dev Pack
+description: Game Development expansion pack for BMad Method - WeChat Mini Game focused
+author: Jules
+slashPrefix: BmadW
+markdownExploder: true
+qa:
+  qaLocation: docs/qa
+prd:
+  prdFile: docs/prd.md
+  prdVersion: v4
+  prdSharded: true
+  prdShardedLocation: docs/prd
+  epicFilePattern: epic-{n}*.md
+architecture:
+  architectureFile: docs/architecture.md
+  architectureVersion: v4
+  architectureSharded: true
+  architectureShardedLocation: docs/architecture
+devDebugLog: .ai/debug-log.md
+devStoryLocation: docs/stories

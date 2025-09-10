@@ -1,0 +1,55 @@
+# MVP Plan for {{GAME_NAME}} - A WeChat Mini Game
+
+## 1. MVP Vision
+- **What is the single, most important problem we are solving or need we are fulfilling with this MVP?**
+- *Example: "To provide a quick, engaging, and social puzzle experience that users can enjoy in short bursts and share with their WeChat friends."*
+
+## 2. Core Gameplay Loop
+- **Describe the essential, repeatable cycle of actions the player will perform.**
+- *Example: 1. Start a new puzzle -> 2. Drag and drop pieces -> 3. Complete the puzzle -> 4. Receive a score -> 5. Share score with friends -> (Repeat)*
+
+## 3. Key MVP Features (The "Must-Haves")
+- This is a prioritized list of features that are absolutely essential for the first version.
+
+| Feature ID | Feature Name | Description | Priority |
+| :--- | :--- | :--- | :--- |
+| MVP-001 | Player Authentication | Log in using WeChat account (`wx.login`). | Must-Have |
+| MVP-002 | Main Menu | A simple screen with a "Start Game" button. | Must-Have |
+| MVP-003 | Core Game Scene | The main screen where the gameplay happens. | Must-Have |
+| MVP-004 | Basic Game Mechanics | The fundamental rules and interactions of the game. | Must-Have |
+| MVP-005 | Win/Loss Condition | Clear criteria for winning or losing a game session. | Must-Have |
+| MVP-006 | End-of-Game Screen | Displays the player's score or result. | Must-Have |
+| MVP-007 | Basic Sound Effects | Audio feedback for key actions (e.g., button clicks, success/failure). | Must-Have |
+| MVP-008 | Simple Data Persistence | Save the player's high score locally on the device (`wx.setStorage`). | Must-Have |
+| MVP-009 | Share Functionality | A button to share the game or score to a WeChat chat. | Must-Have |
+
+## 4. Features "Out of Scope" for MVP (The "Won't-Haves" for now)
+- This list is just as important as the "in-scope" list. It prevents scope creep.
+
+| Feature Name | Reason for Exclusion | Potential Future Release |
+| :--- | :--- | :--- |
+| User Profile Page | Not essential for the core loop. | V2 |
+| In-Game Store | Monetization can be added after validating the core game. | V2 |
+| Daily Challenges | Adds complexity; can be a future engagement feature. | V3 |
+| Friend Leaderboards | Requires backend development; can be added post-MVP. | V2 |
+| Multiple Levels/Modes | Focus on perfecting one mode first. | V2 |
+| Push Notifications | Not critical for initial launch. | V3 |
+| Animated Tutorials | A simple instruction image or text will suffice for MVP. | V2 |
+
+## 5. MVP Success Metrics
+- **How will we know if the MVP is a success?**
+- We need clear, measurable goals.
+
+| Metric | Success Target |
+| :--- | :--- |
+| **Day 1 Retention Rate** | > 20% |
+| **Average Session Length** | > 3 minutes |
+| **Number of Shares per User** | > 0.1 |
+| **Total Installs** | > 1,000 in the first week |
+| **Crash-Free Rate** | > 99% |
+
+## 6. Technical Stack for MVP
+- **Frontend:** WeChat Mini Game Framework (JavaScript/TypeScript)
+- **Backend:** None required for MVP (or specify if needed, e.g., for `wx.login` session exchange).
+- **Art/Audio:** Placeholder or simplified assets are acceptable.
+- **WeChat APIs:** `wx.login`, `wx.getSystemInfo`, `wx.createCanvas`, `wx.createInnerAudioContext`, `wx.setStorage`, `wx.getStorage`, `wx.shareAppMessage`.

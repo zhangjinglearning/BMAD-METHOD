@@ -1,0 +1,44 @@
+# Test Cases for {{GAME_NAME}}
+
+- **Feature:** {{FEATURE_NAME}}
+- **Tester:** {{TESTER_NAME}}
+- **Date:** {{DATE}}
+
+---
+
+### Test Case Template
+
+| Test Case ID | Description | Preconditions | Steps to Execute | Expected Result | Actual Result | Status (Pass/Fail) | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-XXX-###** | | | | | | | |
+
+---
+
+### Example Test Cases: Onboarding & Main Menu
+
+| Test Case ID | Description | Preconditions | Steps to Execute | Expected Result | Actual Result | Status (Pass/Fail) | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-ONB-001** | Verify successful user login and authorization. | User has not authorized the game before. | 1. Open the game. <br> 2. Tap the "Login" button. <br> 3. Tap "Allow" on the WeChat authorization prompt. | User is successfully logged in and their avatar/nickname is displayed on the main menu. | | | |
+| **TC-ONB-002** | Verify handling of user login denial. | User has not authorized the game before. | 1. Open the game. <br> 2. Tap the "Login" button. <br> 3. Tap "Deny" on the WeChat authorization prompt. | The game displays a message explaining that authorization is required to play and may show a guest mode option or prevent progress. | | | |
+| **TC-MENU-001** | Verify "Start Game" button functionality. | User is on the main menu. | 1. Tap the "Start Game" button. | The game transitions from the main menu to the game scene, and gameplay begins. | | | |
+| **TC-MENU-002**| Verify the functionality of the "Sound On/Off" button. | User is on the main menu. | 1. Tap the sound icon to turn sound off. <br> 2. Tap it again to turn it on. <br> 3. Restart the game. | Sound should toggle correctly. The setting should persist after a restart (testing `wx.setStorage`). | | | |
+
+---
+
+### Example Test Cases: Gameplay
+
+| Test Case ID | Description | Preconditions | Steps to Execute | Expected Result | Actual Result | Status (Pass/Fail) | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-GAME-001** | Verify core game mechanic. | Gameplay has started. | 1. Perform the primary action of the game (e.g., tap to jump, swipe to move). | The player character responds correctly and as expected according to the game's rules. | | | |
+| **TC-GAME-002** | Verify win condition. | Player is close to winning the game. | 1. Perform the final action required to win. | The game correctly identifies the win condition, stops gameplay, and displays the "You Win" screen with the final score. | | | |
+| **TC-GAME-003** | Verify loss condition. | Player is close to losing the game. | 1. Perform an action that results in a loss (e.g., let the timer run out, get hit by an enemy). | The game correctly identifies the loss condition, stops gameplay, and displays the "Game Over" screen. | | | |
+| **TC-GAME-004** | Verify pausing and resuming the game. | Gameplay has started. | 1. Tap the "Pause" button. <br> 2. Tap the "Resume" button. | The game should pause, showing a pause menu. Upon resuming, the game should continue from the exact state it was in. | | | |
+
+---
+
+### Example Test Cases: Social & Sharing
+
+| Test Case ID | Description | Preconditions | Steps to Execute | Expected Result | Actual Result | Status (Pass/Fail) | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-SOC-001** | Verify the "Share to Friend" functionality. | User is on the "Game Over" screen. | 1. Tap the "Share" button. <br> 2. Select a friend from the WeChat contact list. <br> 3. Send the share card. | A share card with the game's title, a custom image, and the player's score is sent to the selected friend. | | | |
+| **TC-SOC-002** | Verify opening the game from a share card. | A user has received a share card from a friend. | 1. Tap on the share card within the WeChat chat. | The game launches successfully. (Bonus: Test if any custom parameters from the share card are handled correctly). | | | |
