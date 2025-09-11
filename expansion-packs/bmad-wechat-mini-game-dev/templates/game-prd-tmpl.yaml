@@ -1,0 +1,84 @@
+# BMAD Product Requirements Document (PRD) Template for WeChat Mini Games
+# This template is designed to be used with the 'create-doc' task.
+
+template:
+  id: game-prd-tmpl
+  name: Game Product Requirements Document (PRD)
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/prd-{{GAME_NAME}}.md
+    title: 'Product Requirements Document: {{GAME_NAME}}'
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: introduction
+    title: Introduction
+    instruction: "Provide a brief overview of the project and the purpose of this document. Define the product and its intended scope."
+    sections:
+      - id: product_vision
+        title: Product Vision
+        instruction: "What is the ultimate goal of this game? What experience do we want to provide to our players?"
+        type: paragraphs
+      - id: target_audience
+        title: Target Audience
+        instruction: "Describe the primary demographic for this game. Who are we building this for? What are their motivations and habits on the WeChat platform?"
+        type: paragraphs
+
+  - id: product_goals
+    title: Strategic Goals and Success Metrics
+    instruction: "Define the key business and product goals. How will we measure the success of this game?"
+    type: table
+    table_headers: ["Goal", "Key Metric", "Success Target"]
+
+  - id: features
+    title: Product Features
+    instruction: "List all major features planned for the game. For each feature, provide a clear description, the problem it solves for the player, and how its success will be measured. Use the 'repeat' command for each new feature."
+    type: repeatable-container
+    repeatable: true
+    sections:
+      - id: feature_details
+        title: "Feature: {{feature_name}}"
+        instruction: "Provide a detailed description of the feature."
+        sections:
+          - id: feature_description
+            title: Description
+            type: paragraphs
+          - id: user_problem
+            title: User Problem / Need
+            instruction: "What player problem or need does this feature address?"
+            type: paragraphs
+          - id: acceptance_criteria
+            title: High-Level Acceptance Criteria
+            instruction: "List the high-level criteria that must be met for this feature to be considered complete from a product perspective."
+            type: bullet-list
+            item_template: "- {{criteria}}"
+
+  - id: user_flow
+    title: User Flow
+    instruction: "Provide a high-level diagram (using Mermaid) that shows the typical journey a player will take through the game's main features."
+    type: mermaid
+    mermaid_type: flowchart
+    details: |
+      graph TD
+          A[Game Launch] --> B{Onboarding};
+          B --> C[Main Menu];
+          C --> D{Core Gameplay Loop};
+          D --> E[Post-Game Results];
+          E --> C;
+          C --> F[Store/Monetization];
+          F --> C;
+
+  - id: monetization
+    title: Monetization Strategy
+    instruction: "Describe how the game will generate revenue. This could include in-app purchases (IAP), rewarded video ads, banner ads, etc. Detail the specific items or opportunities for monetization."
+    type: paragraphs
+
+  - id: future_roadmap
+    title: Future Roadmap
+    instruction: "Outline the potential features and content to be added in future updates, beyond the initial release or MVP."
+    type: bullet-list
+    item_template: "- **{{release_phase}}**: {{feature_or_content_description}}"

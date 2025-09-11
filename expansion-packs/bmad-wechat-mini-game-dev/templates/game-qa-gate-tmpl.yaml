@@ -1,0 +1,84 @@
+# BMAD QA Gate Template for WeChat Mini Games
+# This template is designed to be used by the game-qa agent.
+
+template:
+  id: game-qa-gate-tmpl
+  name: QA Gate Report
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/qa/gates/{{epic_name}}-{{story_name}}-qagate.md
+    title: 'QA Gate Report for Story: {{story_name}}'
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: build_info
+    title: Build Information
+    instruction: "Provide details about the specific build or feature being tested."
+    type: table
+    table_headers: ["Attribute", "Value"]
+    template:
+      - ["Story/Feature Name", "{{story_name}}"]
+      - ["Version/Build Number", "{{build_version}}"]
+      - ["Test Date", "{{test_date}}"]
+      - ["QA Engineer", "{{qa_engineer_name}}"]
+
+  - id: test_summary
+    title: Test Execution Summary
+    instruction: "Summarize the results of the test case execution."
+    type: table
+    table_headers: ["Metric", "Result"]
+    template:
+      - ["Total Test Cases Executed", "{{total_tests}}"]
+      - ["Test Cases Passed", "{{passed_tests}}"]
+      - ["Test Cases Failed", "{{failed_tests}}"]
+      - ["Pass Rate", "{{pass_rate}}%"]
+
+  - id: performance_validation
+    title: Performance Validation
+    instruction: "Record the key performance metrics measured during testing. Compare them against the defined targets."
+    type: table
+    table_headers: ["Metric", "Target", "Actual Result", "Status (Pass/Fail)"]
+    item_template:
+      - ["Average FPS", "> 55", "{{actual_fps}}", "{{fps_status}}"]
+      - ["Peak Memory Usage (MB)", "< 100MB", "{{actual_memory}}", "{{memory_status}}"]
+      - ["Initial Load Time (s)", "< 3s", "{{actual_load_time}}", "{{load_time_status}}"]
+
+  - id: tdd_compliance
+    title: TDD Compliance Check
+    instruction: "Verify that the feature was developed following Test-Driven Development principles."
+    type: bullet-list
+    item_template:
+      - "Unit tests written before implementation: **{{tdd_unit_tests_status}}**"
+      - "All new code is covered by tests: **{{tdd_coverage_status}}**"
+      - "All tests are passing: **{{tdd_pass_status}}**"
+
+  - id: bug_report
+    title: New Defects Found
+    instruction: "List any new bugs or regressions discovered during this test cycle. If none, state 'None'."
+    type: repeatable-container
+    repeatable: true
+    sections:
+      - id: bug_details
+        title: "Bug ID: {{bug_id}}"
+        type: table
+        table_headers: ["Attribute", "Details"]
+        template:
+          - ["Severity", "{{bug_severity}}"]
+          - ["Description", "{{bug_description}}"]
+          - ["Steps to Reproduce", "{{bug_steps}}"]
+
+  - id: final_decision
+    title: Final Gate Decision
+    instruction: "Based on the results above, make a clear GO or NO-GO decision."
+    type: choice-selector
+    choices:
+      decision: [GO, NO-GO]
+    template: "The final decision for this quality gate is: **{{decision}}**"
+  - id: decision_rationale
+    title: Rationale
+    instruction: "Provide a brief explanation for the GO/NO-GO decision, especially if it's a NO-GO."
+    type: paragraphs
