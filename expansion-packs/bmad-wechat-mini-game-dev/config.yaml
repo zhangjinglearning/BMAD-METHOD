@@ -3,7 +3,7 @@ version: 0.1.0
 short-title: WeChat Mini Game Dev Pack
 description: Game Development expansion pack for BMad Method - WeChat Mini Game focused
 author: Jules
-slashPrefix: BmadW
+slashPrefix: madGame
 markdownExploder: true
 qa:
   qaLocation: docs/qa
