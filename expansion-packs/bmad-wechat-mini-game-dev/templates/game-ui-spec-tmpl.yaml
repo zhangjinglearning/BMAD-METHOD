@@ -1,0 +1,86 @@
+# BMAD Game UI Specification Template for WeChat Mini Games
+# This template is designed to be used with the 'create-doc' task.
+
+template:
+  id: game-ui-spec-tmpl
+  name: Game UI Specification
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/design/ui-spec-{{GAME_NAME}}.md
+    title: 'Game UI/UX Specification for {{GAME_NAME}}'
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: overview
+    title: UI/UX Overview
+    instruction: "Provide a high-level vision for the game's user interface and user experience. Describe the overall feeling and goals (e.g., 'fast and responsive', 'immersive and thematic', 'clean and minimalist')."
+    type: paragraphs
+
+  - id: style_guide
+    title: Theme and Style Guide
+    instruction: "Define the visual style of the game's UI. Specify the color palette, typography (fonts, sizes, weights), and the style of common UI elements like buttons and panels."
+    sections:
+      - id: color_palette
+        title: Color Palette
+        instruction: "List the primary, secondary, and accent colors to be used in the UI. Provide hex codes."
+        type: bullet-list
+        item_template: "- {{color_name}}: `{{hex_code}}` - {{usage_description}}"
+      - id: typography
+        title: Typography
+        instruction: "Specify the fonts to be used for different UI elements (e.g., titles, body text, buttons). Include details on font size and weight."
+        type: bullet-list
+        item_template: "- **{{element_name}}**: Font: {{font_name}}, Size: {{font_size}}, Weight: {{font_weight}}"
+
+  - id: screen_flow
+    title: Screen Flow Diagram
+    instruction: "Create a Mermaid flowchart diagram that illustrates the navigation paths between all the different screens and menus in the game."
+    type: mermaid
+    mermaid_type: flowchart
+    details: |
+      graph TD
+          A[Start] --> B(Main Menu);
+          B --> C{Game Screen};
+          C --> D[Game Over Screen];
+          B --> E[Settings Screen];
+          D --> B;
+          E --> B;
+
+  - id: screen_breakdown
+    title: Screen Breakdown
+    instruction: "Detail each individual screen of the game. Use the 'repeat' command to add a new screen."
+    type: repeatable-container
+    repeatable: true
+    sections:
+      - id: screen_details
+        title: "Screen: {{screen_name}}"
+        instruction: "Describe the purpose and layout of this screen."
+        type: paragraphs
+      - id: screen_layout
+        title: Layout and Wireframe
+        instruction: "Describe the layout of the UI elements on this screen. You can use a simple text-based wireframe or describe the positions of elements."
+        type: code-block
+      - id: screen_elements
+        title: UI Elements
+        instruction: "List and describe each interactive UI element on this screen (buttons, sliders, toggles, etc.)."
+        type: table
+        table_headers: ["Element ID", "Type", "Description"]
+      - id: screen_interactions
+        title: Interactions
+        instruction: "Describe the user interactions for this screen. How does the user trigger actions? What is the feedback?"
+        type: numbered-list
+        item_template: "{{interaction_description}}"
+
+  - id: responsiveness
+    title: Responsiveness and Aspect Ratios
+    instruction: "Describe how the UI will adapt to different screen sizes and aspect ratios, which is critical for WeChat Mini Games running on various devices. Mention the use of anchoring and scaling strategies."
+    type: paragraphs
+
+  - id: accessibility
+    title: Accessibility Considerations
+    instruction: "Outline the accessibility features to be included in the UI. This includes considerations for color blindness, text legibility (contrast), and ensuring touch targets are large enough."
+    type.type: bullet-list
+    item_template: "- {{accessibility_feature}}: {{implementation_detail}}"

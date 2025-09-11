@@ -1,0 +1,67 @@
+# BMAD Level Design Document Template for WeChat Mini Games
+# This template is designed to be used with the 'create-doc' task.
+
+template:
+  id: level-design-doc-tmpl
+  name: Level Design Document
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/design/level-design-{{GAME_NAME}}.md
+    title: 'Level Design Document for {{GAME_NAME}}'
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: level_overview
+    title: "Level {{level_number}}: {{level_name}}"
+    instruction: "Provide a high-level summary of this level, including its theme, primary challenges, and what the player is expected to learn or achieve."
+    type: paragraphs
+
+  - id: level_goals
+    title: Objectives and Goals
+    instruction: "List the primary and secondary objectives for the player to complete in this level."
+    type: bullet-list
+    item_template: "- **{{objective_type}}**: {{objective_description}}"
+
+  - id: level_layout
+    title: Layout and Map
+    instruction: "Describe the layout of the level. You can use a text-based map, a Mermaid diagram, or a detailed description of the key areas and paths."
+    type: mermaid
+    mermaid_type: flowchart
+    details: |
+      graph TD
+          A[Start Point] --> B{First Challenge};
+          B --> C[Key Item Location];
+          C --> D{Final Encounter};
+          D --> E[Exit];
+
+  - id: entity_placement
+    title: Entity Placement
+    instruction: "Detail the placement of all entities within the level, such as enemies, NPCs, items, and hazards. Be specific about locations and quantities."
+    type: repeatable-container
+    repeatable: true
+    sections:
+      - id: entity
+        title: "Entity: {{entity_name}}"
+        type: table
+        table_headers: ["Location/Area", "Quantity", "Behavior Notes"]
+
+  - id: scripted_events
+    title: Scripted Events
+    instruction: "Describe any scripted events or triggers that occur in this level. This includes cutscenes, dialogue triggers, or changes in the environment."
+    type: numbered-list
+    item_template: "**Event**: {{event_name}}\n   - **Trigger**: {{event_trigger}}\n   - **Action**: {{event_action}}"
+
+  - id: difficulty_and_balancing
+    title: Difficulty and Balancing
+    instruction: "Explain how the difficulty is balanced for this level. Discuss factors like enemy health/damage, resource availability, and the complexity of puzzles or challenges."
+    type: paragraphs
+
+  - id: asset_list
+    title: Required Assets
+    instruction: "List all the specific art and audio assets required for this level (e.g., specific enemy sprites, background music, sound effects)."
+    type: bullet-list
+    item_template: "- **{{asset_type}}**: {{asset_name_or_description}}"
