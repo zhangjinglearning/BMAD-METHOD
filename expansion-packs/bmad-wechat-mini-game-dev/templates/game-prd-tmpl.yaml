@@ -7,8 +7,8 @@ template:
   version: 1.0
   output:
     format: markdown
-    filename: docs/prd-{{GAME_NAME}}.md
-    title: 'Product Requirements Document: {{GAME_NAME}}'
+    filename: docs/prd.md
+    title: "Product Requirements Document: {{GAME_NAME}}"
 
 workflow:
   mode: interactive

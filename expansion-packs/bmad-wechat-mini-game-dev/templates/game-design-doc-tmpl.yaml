@@ -4,7 +4,7 @@ template:
   version: 4.0
   output:
     format: markdown
-    filename: docs/game-design-document.md
+    filename: docs/gdd.md
     title: "{{game_title}} Game Design Document (GDD)"
 
 workflow:
@@ -694,4 +694,3 @@ sections:
           - "WeChat Mini Game Architect: Create detailed technical architecture with object patterns"
           - "WeChat Mini Game Developer: Implement systems with TDD maintaining 60+ FPS"
           - "QA Tester: Validate performance targets, event cleanup, and platform exports"
-```

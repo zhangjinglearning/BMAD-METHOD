@@ -7,8 +7,8 @@ template:
   version: 1.0
   output:
     format: markdown
-    filename: docs/design/ui-spec-{{GAME_NAME}}.md
-    title: 'Game UI/UX Specification for {{GAME_NAME}}'
+    filename: docs/ui-spec.md
+    title: "Game UI/UX Specification for {{GAME_NAME}}"
 
 workflow:
   mode: interactive

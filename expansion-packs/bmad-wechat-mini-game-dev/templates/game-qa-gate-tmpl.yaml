@@ -7,8 +7,8 @@ template:
   version: 1.0
   output:
     format: markdown
-    filename: docs/qa/gates/{{epic_name}}-{{story_name}}-qagate.md
-    title: 'QA Gate Report for Story: {{story_name}}'
+    filename: docs/qa/gates/{{story_name}}-qagate.md
+    title: "QA Gate Report for Story: {{story_name}}"
 
 workflow:
   mode: interactive

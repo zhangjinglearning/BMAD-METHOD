@@ -7,8 +7,8 @@ template:
   version: 1.0
   output:
     format: markdown
-    filename: docs/design/level-design-{{GAME_NAME}}.md
-    title: 'Level Design Document for {{GAME_NAME}}'
+    filename: docs/level-design.md
+    title: "Level Design Document for {{GAME_NAME}}"
 
 workflow:
   mode: interactive
